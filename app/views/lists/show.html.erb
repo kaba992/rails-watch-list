@@ -1,17 +1,36 @@
-<h1><%= @list.name %></h1>
-<%= link_to "Add Movie", new_list_bookmark_path(@list,@bookmark) %>
-<%@list.bookmarks.each do |bookmark|%>
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="<%bookmark.movie.poster_url%>" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><%= bookmark.movie.title %> <span><%=bookmark.movie.rating  %> <i class="fa fa-star"></i></span></h5>
-      <p class="card-text"><%= bookmark.movie.overview %> </p>
-      <p><%= bookmark.comment %></p>
-    </div>
+<div>
+  <%= render "navbar", list: @list %>
+  <div class="card-category" style="background:linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)), no-repeat url('<%= @list.picture_url%>') center center/cover;">
+    <h1><%= @list.name %></h1>
+    <p class= "count btn btn-success"><%= @list.bookmarks.count%> Movies</p>
   </div>
-  <%= link_to "Remove", list_bookmark_path(bookmark),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class: 'ms-3 text-danger alert'
-            %>
-<%end%>
+  <div class="add_btn"><%= link_to "Add Movie", new_list_bookmark_path(@list,@bookmark) , :class => "morph_button "%></div>
+  <div class="cards">
+    <%@list.bookmarks.each do |bookmark|%>
+      <div class="card">
+        <div class="img"  style="background:linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)), no-repeat url('<%= bookmark.movie.poster_url%>') center center/cover;"  ></div>
+        <div class="card-body">
+          <div class="title">
+            <h5 class="card-title"><%= bookmark.movie.title %></h5>
+            <p><%=bookmark.movie.rating  %> <i class="fa fa-star"></i></p>
+          </div>
+          <div class="card-text">
+            <p><%= bookmark.movie.overview %> </p>
+          </div>
+          <div class="comment">
+            <p><i class="fas fa-quote-left"></i><%= bookmark.comment %> </p>
+            <p><%= link_to "Remove", list_bookmark_path(bookmark),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" },
+                    class: 'ms-3 text-danger '
+                %></p>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

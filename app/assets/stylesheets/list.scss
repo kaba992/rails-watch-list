@@ -1,4 +1,60 @@
 // Place all the styles related to the list controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.fa-star {
+  color: rgb(221, 221, 27);
+}
 
+.lists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+
+  .list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 350px;
+    margin: 0.5rem;
+
+    h1 {
+      color: #fff;
+    }
+  }
+
+}
+
+.banner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.new_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}

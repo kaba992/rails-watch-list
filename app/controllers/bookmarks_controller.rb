@@ -11,12 +11,11 @@ class BookmarksController < ApplicationController
     if @bookmark.save!
       redirect_to lists_path
     else
-      render :new
+      render
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @list = List.find(params[:id])
@@ -25,7 +24,7 @@ class BookmarksController < ApplicationController
     if @bookmark.destroy
       redirect_to list_path(@list)
     else
-      render :new
+      render :new_list_bookmark
     end
   end
 

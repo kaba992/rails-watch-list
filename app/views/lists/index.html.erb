@@ -1,8 +1,19 @@
-<h1>Your lists</h1>
-<%= link_to "Add List",  new_list_path(@list) %>
-<ul>
-  <% @lists.each do |list|%>
-    <li> <%= link_to list.name, list_path(list) %>
-    </li>
-  </ul>
-<%end%>
+<div>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/VuN3x0cKC4I);">
+  <%= render "navbar", list: @list %>
+    <div class="container">
+      <h1 class="title_ac">Save all your favorites movies</h1>
+    </div>
+  </div>
+  <div class="lists">
+    <% @lists.each do |list|%>
+      <%= link_to list do %>
+        <div class="list" style="background:linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)), no-repeat url('<%= list.picture_url%>') center center/cover;">
+          <h1 class="text-center font-weight-bold"><%=list.name%></h1>
+        </div>
+      <% end %>
+    <%end%>
+  </div>
+</div>

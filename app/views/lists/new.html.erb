@@ -1,6 +1,8 @@
-
-
-<%= simple_form_for (@list) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "Submit new list", class: "btn btn-primary" %>
-<% end %>
+  <%= render "navbar", list: @list %>
+<div class="new_list container-fluid">
+  <%= simple_form_for (@list) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :picture_url %>
+    <%= f.submit "Submit new list", class: "morph_button" %>
+  <% end %>
+</div>
