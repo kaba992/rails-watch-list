@@ -2,7 +2,7 @@
   <%= render "navbar", list: @list %>
   <div class="card-category" style="background:linear-gradient(to bottom,
         rgba(0, 0, 0, 0.4),
-        rgba(0, 0, 0, 0.4)), no-repeat url('<%= @list.picture_url%>') center center/cover;">
+        rgba(0, 0, 0, 0.4)), no-repeat url('<%= cl_image_path @list.photo.key%>') center center/cover;">
     <h1><%= @list.name %></h1>
     <p class= "count btn btn-success"><%= @list.bookmarks.count%> Movies</p>
   </div>

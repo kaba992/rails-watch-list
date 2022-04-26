@@ -2,7 +2,7 @@
 <div class="new_list container-fluid">
   <%= simple_form_for (@list) do |f| %>
     <%= f.input :name %>
-    <%= f.input :picture_url %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit "Submit new list", class: "morph_button" %>
   <% end %>
 </div>
