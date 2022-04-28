@@ -10,8 +10,8 @@
   width: 100%;
 
   .card {
-    width: 45%;
-    height: 450px;
+    width: 22%;
+    height: 20%;
     margin: 1rem;
     border-color: #d1d9e6;
     box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
@@ -41,10 +41,11 @@
     }
 
     .card-text {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 170px;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      height: 77px;
+      overflow: hidden;
     }
   }
 
@@ -71,3 +72,4 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
+// ACORDION

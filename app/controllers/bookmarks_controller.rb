@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
   def new
+    @bookmarks = Bookmark.all
     @bookmark = Bookmark.new
     @list = List.find(params[:list_id])
   end

@@ -13,6 +13,54 @@
 @import "components/index";
 @import "pages/index";
 
+
+$custom-colors: ("bootstrap": #563d7c,
+  "simpleform": #00617f);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+
+
+// Components
+@import "components/alert";
+
+
+abbr[title] {
+  text-decoration: none;
+}
+
+[class="btn"] {
+  @extend .btn-primary;
+}
+
+.form-check-inline {
+  .form-check-label {
+
+    &.collection_check_boxes,
+    &.collection_radio_buttons {
+      margin-right: .265625rem;
+    }
+  }
+}
+
+legend~div.form-check:first-of-type {
+  clear: left;
+}
+
+.form-select {
+
+  &.date,
+  &.datetime,
+  &.time {
+    &:first-of-type {
+      margin-left: 0 !important;
+    }
+
+    &:last-of-type {
+      margin-right: 0 !important;
+    }
+  }
+}
+
 body {
   height: 100vh;
   width: 100vw;

@@ -9,10 +9,11 @@
   <div class="add_btn"><%= link_to "Add Movie", new_list_bookmark_path(@list,@bookmark) , :class => "morph_button "%></div>
   <div class="cards">
     <%@list.bookmarks.each do |bookmark|%>
+    <%= link_to movie_path(bookmark.movie) do %>
       <div class="card">
         <div class="img"  style="background:linear-gradient(to bottom,
         rgba(0, 0, 0, 0.4),
-        rgba(0, 0, 0, 0.4)), no-repeat url('<%= bookmark.movie.poster_url%>') center center/cover;"  ></div>
+        rgba(0, 0, 0, 0.4)), no-repeat url('<%= bookmark.movie.poster_url%>') center center/cover;"></div>
         <div class="card-body">
           <div class="title">
             <h5 class="card-title"><%= bookmark.movie.title %></h5>
@@ -31,6 +32,7 @@
           </div>
         </div>
       </div>
+      <% end%>
     <%end%>
   </div>
 </div>
