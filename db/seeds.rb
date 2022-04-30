@@ -29,7 +29,7 @@ require 'ostruct'
 puts 'en cours de création'
 Tmdb::Api.key('8c6e4acadd414bb5278340914cd3e0bf')
 Tmdb::Api.language('fr')
-movies = Tmdb::Movie.latest
+movies = Tmdb::Movie.detail(550, language: 'fr')
 p movies
 # url = 'https://tmdb.lewagon.com/movie/top_rated'
 # movies_serialized = URI.open(url).read

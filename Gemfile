@@ -36,7 +36,7 @@ gem 'erb-formatter'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'greensock-rails'
 gem 'simple_form', github: 'heartcombo/simple_form'
-gem 'themoviedb-api', '~> 1.3'
+gem 'themoviedb-api'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
