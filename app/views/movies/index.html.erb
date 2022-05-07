@@ -1,0 +1,40 @@
+<div class="containers">
+  <h2 class="index_title">Nouveautés</h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @upcoming.each do |movie| %>
+        <div class="swiper-slide">
+          <%= link_to movie_path(movie.id) do %>
+            <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <h2 class="index_title">Les mieux notés</h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @top_rated.each do |movie| %>
+        <div class="swiper-slide">
+          <%= link_to movie_path(movie.id) do %>
+            <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <h2 class="index_title">Les plus Populaires</h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @popular.each do |movie| %>
+        <div class="swiper-slide">
+          <%= link_to movie_path(movie.id) do %>
+            <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

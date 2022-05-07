@@ -8,7 +8,6 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
@@ -67,7 +66,9 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  background: #e6e7ee;
+  background: #26292d;
+  color: #fff;
+  overflow-x: hidden;
 }
 
 ul {

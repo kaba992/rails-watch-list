@@ -26,11 +26,7 @@ require 'ostruct'
 # Movie.create(title: "Ocean's Eight",
 #              overview: 'Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.', poster_url: 'https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg', rating: 7.0)
 # puts 'terminé'
-puts 'en cours de création'
-Tmdb::Api.key('8c6e4acadd414bb5278340914cd3e0bf')
-Tmdb::Api.language('fr')
-movies = Tmdb::Movie.latest
-p movies
+
 # url = 'https://tmdb.lewagon.com/movie/top_rated'
 # movies_serialized = URI.open(url).read
 # movies = JSON.parse(movies_serialized)['results']
@@ -47,3 +43,26 @@ p movies
 # Movie.create(title: "Ocean's Eight",
 #              overview: 'Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.', poster_url: 'https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg', rating: 7.0)
 # puts 'terminé'
+
+Tmdb::Api.key('8c6e4acadd414bb5278340914cd3e0bf')
+Tmdb::Api.language('fr')
+# p upcoming_movies = Tmdb::Movie.upcoming['results']
+# p top_rated_movies = Tmdb::Movie.top_rated['results']
+# p popular_movies = Tmdb::Movie.popular['results']
+
+# puts 'Creating directors...'
+# directors = {}  # slug => Director
+# sample["directors"].each do |director|
+#   directors[director["slug"]] = Director.create! director.slice("first_name", "last_name")
+# end
+
+# puts 'Creating movies...'
+# sample["movies"].each do |movie|
+#   Movie.create! movie.slice("title", "year", "synopsis").merge(director: directors[movie["director_slug"]])
+# end
+
+# puts 'Creating tv shows...'
+# sample["series"].each do |tv_show|
+#   TvShow.create! tv_show
+# end
+puts 'Finished!'

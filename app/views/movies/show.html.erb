@@ -1,18 +1,58 @@
+<div
+  class="card-category"
+  style="background:linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)), no-repeat url('https://image.tmdb.org/t/p/original/<%= @movie.backdrop_path%>') center center/cover;"
+>
 
-  <div class="card-category" style="background:linear-gradient(to bottom,
-        rgba(0, 0, 0, 0.4),
-        rgba(0, 0, 0, 0.4)), no-repeat url('<%= @movie.poster_url%>') center center/cover;">
-    <h1><%= @movie.title %></h1>
-
-  </div>
-<div class="container-fluid">
   <div class="body">
-  <div class="casting">
-    <h3>Overview</h3>
-    <p><%= @movie.overview %></p>
-  </div>
-  <div class="review">
+      <div class="movie_show_card">
+        <%= image_tag "https://image.tmdb.org/t/p/w500/#{@movie.poster_path}" %>
+      </div>
+    <div class="overview">
+      <div class="info">
+        <h1><%= @movie.title %></h1>
+        <div class="genres">
+          <% @movie.genres.each do |movie| %>
+            <span class="genre">
+              <%= movie.name %>
+            </span>
+          <% end %>
+        </div>
 
-  </div>
+        <p><%= @movie.overview %></p>
+      </div>
+    </div>
+    <div class="casting">
+      <% @casts.first(5).each do |cast| %>
+        <%= image_tag "https://image.tmdb.org/t/p/w185/#{cast.profile_path}" %>
+        <p><%= cast.original_name %>
+        </p>
+      <% end %>
+    </div>
   </div>
 </div>
+<div class="trailer">
+  <iframe
+    class="video_trailer"
+    src="https://www.youtube.com/embed/<%=@trailer[0]['key']%>"
+    frameborder="0"
+    allowfullscreen
+
+  ></iframe>
+</div>
+
+
+
+ <h2>Films similaires à <%= @movie.title %> </h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @similar.each do |movie| %>
+        <div class="swiper-slide">
+          <%= link_to movie_path(movie.id) do %>
+            <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
