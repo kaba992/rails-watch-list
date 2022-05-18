@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   Tmdb::Api.key(ENV['TMDB_API_KEY'])
+
   Tmdb::Api.language('fr')
   def index
     @lists = List.all
@@ -14,7 +15,6 @@ class MoviesController < ApplicationController
     @trailer = Tmdb::Movie.videos(params[:id])
     @similar = Tmdb::Movie.similar(params[:id])['results']
     @reviews = Tmdb::Movie.reviews(params[:id])['results']
-
   end
 
   def new

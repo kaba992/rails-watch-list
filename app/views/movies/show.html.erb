@@ -6,8 +6,11 @@
 >
 
   <div class="body">
-      <div class="movie_show_card">
+      <div class="movie_show_card card-hover">
         <%= image_tag "https://image.tmdb.org/t/p/w500/#{@movie.poster_path}" %>
+      <div class="btn-show">
+      <%= link_to "Ajouter à ma liste", new_movie_path %>
+      </div>
       </div>
     <div class="overview">
       <div class="info">
@@ -23,7 +26,7 @@
         <p><%= @movie.overview %></p>
       </div>
     </div>
-    <div class="casting">
+    <div class="casting card-hover">
       <% @casts.first(5).each do |cast| %>
         <%= image_tag "https://image.tmdb.org/t/p/w185/#{cast.profile_path}" %>
         <p><%= cast.original_name %>
@@ -33,13 +36,18 @@
   </div>
 </div>
 <div class="trailer">
+<% if @trailer.empty?%>
+<p>Désolé pas de pas de bande annonce </p>
+  <% else %>
   <iframe
     class="video_trailer"
-    src="https://www.youtube.com/embed/<%=@trailer[0]['key']%>"
+    src="https://www.youtube.com/embed/<%=@trailer[0]['key'] %>"
     frameborder="0"
     allowfullscreen
 
   ></iframe>
+
+  <%end %>
 </div>
 
 
@@ -48,7 +56,7 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <% @similar.each do |movie| %>
-        <div class="swiper-slide">
+        <div class="swiper-slide card-hover">
           <%= link_to movie_path(movie.id) do %>
             <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}" %>
           <% end %>

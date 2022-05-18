@@ -18,7 +18,9 @@
 .movie_show_card {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   grid-area: 2 / 1 / 5 / 2;
+  align-items: center;
 
   img {
     width: 18rem;
@@ -26,7 +28,54 @@
     border-radius: 8px;
   }
 
-  align-items: center;
+  .btn-show {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    margin-top: 1rem;
+    border-radius: 10rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0cf;
+      border-radius: 10rem;
+      z-index: -2;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: darken(#0cf, 15%);
+      transition: all .3s;
+      border-radius: 10rem;
+      z-index: -1;
+    }
+
+    &:hover {
+      color: #fff;
+
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
 }
 
 .overview {
@@ -117,11 +166,11 @@ p {
   cursor: grabbing;
 }
 
-.swiper-slide:hover {
-  transform: scale(1.5);
-  transition: all 300ms ease-in-out;
-  z-index: 1;
-}
+// .swiper-slide:hover {
+//   transform: scale(1.5);
+//   transition: all 300ms ease-in-out;
+//   z-index: 1;
+// }
 
 .swiper-slide:hover img {
   // transition-delay: 300ms;

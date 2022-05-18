@@ -15,8 +15,6 @@ import 'bootstrap'
 require("packs/main")
 
 
-const gsap = require("gsap/dist/gsap").gsap;
-const MotionPathPlugin = require("gsap/dist/MotionPathPlugin").MotionPathPlugin;
 import Swiper, { Navigation } from 'swiper'
 Swiper.use([Navigation])
 import 'swiper/swiper-bundle.min.css'
@@ -79,5 +77,28 @@ document.addEventListener("turbolinks:load", function () {
       // when window width is >= 1500px
 
     }
+  });
+
+  //Animation cards
+  const TLhover = new TimelineMax();
+  const cards = document.querySelectorAll(".card-hover img");
+
+
+  var hover = false;
+
+  cards.forEach(function (element, i) {
+
+    element.addEventListener("mouseover", function (event) {
+      if (!hover) {
+        TweenMax.to(element, 1, { transformOrigin: "50% 50%", scale: 1.1 });
+      }
+      hover = true;
+    }, false);
+
+    element.addEventListener("mouseleave", function (event) {
+      hover = false;
+      TweenMax.to(element, 1, { transformOrigin: "50% 50%", scale: 1 });
+    }, false);
+
   });
 });
