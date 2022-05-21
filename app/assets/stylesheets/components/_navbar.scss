@@ -26,3 +26,15 @@ nav {
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+
+  form {
+    width: 30%;
+    display: flex;
+  }
+}
