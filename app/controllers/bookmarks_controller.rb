@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+  Tmdb::Api.key(ENV['TMDB_API_KEY'])
+  Tmdb::Api.language('fr')
   def new
     @bookmarks = Bookmark.all
     @bookmark = Bookmark.new
@@ -7,8 +9,10 @@ class BookmarksController < ApplicationController
 
   def create
     @list = List.find(params[:list_id])
+    @moviedb = Tmdb::Movie.detail(params[:id])
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
+    @bookmark.movie = @moviedb
     if @bookmark.save
       redirect_to list_path(@list)
     else
