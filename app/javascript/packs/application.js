@@ -37,35 +37,43 @@ document.addEventListener("turbolinks:load", function () {
 
   console.log(document.querySelector(".swiper-button-next"));
   const swiper = new Swiper(".swiper-container", {
-    slidesPerView: 2,
+    slidesPerView: 8,
     slidesPerGroup: 2,
     spaceBetween: 5,
     grabCursor: true,
     loop: true,
     breakpoints: {
       // when window width is >= 600px
-      600: {
+      300: {
         slidesPerView: 2,
-        slidesPerGroup: 2,
+        slidesPerGroup: 1,
         spaceBetween: 5,
         grabCursor: true,
-        loop: true,
+        loop: false,
+        centeredSlides: true
+
+      },
+      700: {
+        slidesPerView: 4,
+        slidesPerGroup: 1,
+        spaceBetween: 5,
+        grabCursor: true,
+        loop: false,
         centeredSlides: true
 
       },
       // when window width is >= 900px
-      900: {
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-        grabCursor: true,
-        loop: true,
-        speed: 1500,
-        spaceBetween: 5,
-        centeredSlides: false
 
-      },
       // when window width is >= 1200px
       1200: {
+        slidesPerView: 5,
+        slidesPerGroup: 1,
+        grabCursor: true,
+        loop: true,
+        spaceBetween: 5,
+        centeredSlides: false
+      },
+      1500: {
         slidesPerView: 8,
         slidesPerGroup: 4,
         grabCursor: true,
@@ -73,6 +81,7 @@ document.addEventListener("turbolinks:load", function () {
         spaceBetween: 5,
         centeredSlides: false
       },
+
 
       // when window width is >= 1500px
 
