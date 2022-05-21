@@ -159,6 +159,10 @@ p {
   border-radius: 5px;
 }
 
+.swiper-wrapper {
+  display: flex;
+}
+
 .swiper-slide img {
   border-radius: 8px;
   max-width: 18rem;
