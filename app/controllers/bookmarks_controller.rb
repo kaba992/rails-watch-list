@@ -21,7 +21,8 @@ class BookmarksController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+  end
 
   def destroy
     @list = List.find(params[:id])
