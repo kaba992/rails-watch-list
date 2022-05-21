@@ -28,7 +28,7 @@
     </div>
     <div class="casting card-hover">
       <% @casts.first(5).each do |cast| %>
-        <%= image_tag "https://image.tmdb.org/t/p/w185/#{cast.profile_path}" %>
+        <%= image_tag "https://image.tmdb.org/t/p/w185/#{cast.profile_path} " %>
         <p><%= cast.original_name %>
         </p>
       <% end %>
