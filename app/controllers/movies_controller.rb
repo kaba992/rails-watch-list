@@ -9,21 +9,23 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Tmdb::Movie.detail(params[:id])
+    @movie = params[:id]
+    @moviedetail = Tmdb::Movie.detail(params[:id])
     @casts = Tmdb::Movie.cast(params[:id])
     @trailer = Tmdb::Movie.videos(params[:id])
     @similar = Tmdb::Movie.similar(params[:id])['results']
     @reviews = Tmdb::Movie.reviews(params[:id])['results']
+
   end
 
   def new
     @movie = Movie.new
+    @movies = Movie.find(params[:id])
   end
 
   def create
     @movie = Movie.new(movie_params)
     @movie.save
-
     redirect_to movie_path(@movie)
   end
 
@@ -48,6 +50,6 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit
+    params.require(:movie).permit(:title, :overview, :poster_url, :rating )
   end
 end

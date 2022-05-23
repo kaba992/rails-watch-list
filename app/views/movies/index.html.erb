@@ -5,7 +5,7 @@
     <div class="swiper-wrapper">
       <% @upcoming.each do |movie| %>
         <div class="swiper-slide card-hover">
-          <%= link_to movie_path(movie.id) do %>
+          <%= link_to  movie_path(movie.id) do %>
             <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}" %>
           <% end %>
         </div>
@@ -18,7 +18,7 @@
     <div class="swiper-wrapper">
       <% @top_rated.each do |movie| %>
         <div class="swiper-slide card-hover">
-          <%= link_to movie_path(movie.id) do %>
+          <%= link_to  movie_path(movie.id) do %>
             <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}" %>
           <% end %>
         </div>
@@ -31,7 +31,7 @@
     <div class="swiper-wrapper">
       <% @popular.each do |movie| %>
         <div class="swiper-slide card-hover">
-          <%= link_to movie_path(movie.id) do %>
+          <%= link_to  movie_path(movie.id) do %>
             <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}" %>
           <% end %>
         </div>
