@@ -8,7 +8,7 @@
     <div class="movie_show_card card-hover">
       <%= image_tag "https://image.tmdb.org/t/p/w500/#{@moviedetail.poster_path}" %>
       <div class="btn-show">
-        <%= link_to "Ajouter à ma liste",  new_movie_bookmark_path(@movie)  %>
+        <%= link_to "Ajouter à ma liste", new_movie_bookmark_path(@moviedetail.id) %>
       </div>
     </div>
     <div class="overview">

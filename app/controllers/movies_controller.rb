@@ -9,18 +9,15 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = params[:id]
     @moviedetail = Tmdb::Movie.detail(params[:id])
     @casts = Tmdb::Movie.cast(params[:id])
     @trailer = Tmdb::Movie.videos(params[:id])
     @similar = Tmdb::Movie.similar(params[:id])['results']
     @reviews = Tmdb::Movie.reviews(params[:id])['results']
-
   end
 
   def new
     @movie = Movie.new
-    @movies = Movie.find(params[:id])
   end
 
   def create

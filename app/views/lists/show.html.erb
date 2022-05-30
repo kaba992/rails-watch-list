@@ -9,7 +9,7 @@
     <div class="d-flex justify-content-between my-4">
       <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't saved any movies yet!" if @list.movies.empty? %></em></small></span>
       <div>
-        <%= link_to "Ajouter un film",   new_list_bookmark_path(@list) %>
+        <%= link_to "Ajouter un film"  %>
         <%= link_to "Supprimer la liste", list_path(@list), method: :delete, class: "btn btn-cancel", data: { confirm: "Vous ête sûre? vous allez supprimer la liste et tous les films" } %>
       </div>
     </div>

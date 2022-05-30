@@ -1,18 +1,24 @@
 class BookmarksController < ApplicationController
   Tmdb::Api.key(ENV['TMDB_API_KEY'])
   Tmdb::Api.language('fr')
+
   before_action :set_bookmark, only: :destroy
-  # before_action :set_movie, only: [:new, :create]
+  before_action :set_movie, only: [:create]
   def new
-    @movie = params[:movie_id].to_i
-    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark = Bookmark.new
+    @movie = Movie.new
     @lists = List.all
   end
 
   def create
+    @bookmark = Bookmark.new(bookmark_params)
+    @movie = Movie.new(params.except(:movie_id))
+    @movie.id = params[:movie_id]
+    @movie.save!
+    @bookmark.movie_id = params[:movie_id]
+    @bookmark.movie = @movie
     @lists = List.all
-  
-    @bookmark.movie_id = @movie
+
     @bookmark.save
     if @bookmark.save
       redirect_to list_path(@list)
@@ -41,11 +47,13 @@ class BookmarksController < ApplicationController
     params.permit(:comment)
   end
 
+
+
   def set_bookmark
     @bookmark = Bookmark.find(params[:id])
   end
 
-  # def set_movie
-  #   @movie = Movie.find(params[:movie_id])
-  # end
+  def set_movie
+    @movie = Movie.find(params[:id])
+  end
 end

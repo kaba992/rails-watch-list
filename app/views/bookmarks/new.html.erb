@@ -1,5 +1,5 @@
 <div class="containers">
-  <%= simple_form_for [@bookmark,@movie] do |f| %>
+  <%= simple_form_for [@movie, @bookmark] do |f| %>
     <%= f.association :list, prompt: "Choose a list" %>
     <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
     <%= f.submit "Submit new bookmark", class: "morph_button" %>
