@@ -1,7 +1,21 @@
-<div class="containers">
-  <%= simple_form_for [@movie, @bookmark] do |f| %>
-    <%= f.association :list, prompt: "Choose a list" %>
-    <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
-    <%= f.submit "Submit new bookmark", class: "morph_button" %>
-  <% end %>
+
+<div class="modal fade" id="new_movie_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ajoutez un film à votre liste</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@movie, @bookmark] do |f| %>
+          <%= f.association :list, collection: List.all, prompt: "Select a list", input_html: { data: { controller: "slect2" } } %>
+          <%= f.input :comment, placeholder: "Enter a comment about the movie" %>
+      </div>
+      <div class="modal-footer">
+          <%= f.submit "Add movie", class: "btn btn-flat" %>
+        <% end %>
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Back</button>
+      </div>
+    </div>
+  </div>
 </div>
